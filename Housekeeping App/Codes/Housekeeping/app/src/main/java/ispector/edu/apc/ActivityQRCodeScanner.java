@@ -24,4 +24,11 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
             setContentView(mScannerView);                // Set the scanner view as the content view
             }
 
-  
+    @Override
+    public void onResume() {
+            super.onResume();
+            mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
+            mScannerView.startCamera();          // Start camera on resume
+            }
+
+   
