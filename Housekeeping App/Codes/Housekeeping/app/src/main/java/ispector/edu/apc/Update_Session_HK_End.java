@@ -42,3 +42,15 @@ public class Update_Session_HK_End extends AsyncTask<Void, Void, String> {
     }
 
 
+    @Override
+    protected void onPreExecute() {
+        Logs.show("d", TAG, "Loading data...");
+        super.onPreExecute();}
+
+    protected String doInBackground(Void... args) {
+
+       //String address = "http://192.168.0.10/housekeepingapp/get_all_users.php?username="+_username+"&password="+_password;
+        //String address = HousekeepingApp.ServerAddress + "/get_all_users.php";
+        String address = HousekeepingApp.ServerAddress + "/update_session_hk_end.php?UserNo="+_userNo+"&RoomNo="+_roomNo;
+        Logs.show("v", TAG, "address >> " + address);
+        HttpURLConnection urlConnection;
