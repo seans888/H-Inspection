@@ -18,3 +18,19 @@ public class CameraState {
     String myPref;
     SharedPreferences sp;
 
+
+    public CameraState(Context context){
+        this.c = context;
+        sp = context.getSharedPreferences(myPref, Context.MODE_PRIVATE); // Initializing SP.
+
+    }
+    public boolean isCameraEnabled (){
+        if (ContextCompat.checkSelfPermission(c, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_DENIED){
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
