@@ -43,3 +43,8 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
             Log.v(TAG, rawResult.getText()); // Prints scan results
             Log.v(TAG, rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
             HousekeepingApp.setQRCode(rawResult.getText());
+            // If you would like to resume scanning, call this method below:
+            mScannerView.resumeCameraPreview(this);
+            this.finish();
+    }
+}
