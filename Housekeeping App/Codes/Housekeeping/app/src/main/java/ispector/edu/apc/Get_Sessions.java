@@ -77,4 +77,38 @@ public class Get_Sessions extends AsyncTask<Void, Void, String> {
                 response += temp;
                 Logs.show("e", TAG, "response >> " + response);
             }
-            
+            // put into JSONObject
+            jsonObject.put("Content", response);
+            jsonObject.put("Message", urlConnection.getResponseMessage());
+            jsonObject.put("Length", urlConnection.getContentLength());
+            jsonObject.put("Type", urlConnection.getContentType());
+
+            int i = jsonObject.length();
+            Logs.show("e", TAG, "length >> " + Integer.toString(i));
+            JSONArray json = new JSONArray(response);
+            if (json.length() == 0){
+                return "No session found";
+            }else{
+                for(int j=0;j<json.length();j++){
+                    JSONObject e = json.getJSONObject(j);
+                    _HK_START =  e.getString("HK_START");
+                    _HK_END =  e.getString("HK_END");
+                    Logs.show("e", TAG, "_HK_START >> " + _HK_START);
+                    Logs.show("e", TAG, "_HK_END >> " +  _HK_END);
+
+                    _INSP_START =  e.getString("INSP_START");
+                    _INSP_END =  e.getString("INSP_END");
+                    Logs.show("e", TAG, "_INSP_START >> " + _INSP_START);
+                    Logs.show("e", TAG, "_INSP_END >> " +  _INSP_END);
+                }
+                return _HK_START + "#%" + _HK_END + "#%" + _INSP_START + "#%" + _INSP_END;
+            }
+
+
+
+        } catch (IOException | JSONException e) {
+            return e.toString();
+        }
+
+    }
+
