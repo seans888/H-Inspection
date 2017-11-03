@@ -94,7 +94,7 @@ public class Insert_Session extends AsyncTask<Void, Void, String> {
     }
 
     protected void onPostExecute(String result) {
-        // dismiss the dialog after getting all products
+        // dismiss the dialog after getting all data
         if (mListener != null){
             mListener.myMethod(result);        }else{
             mListener.myMethod(null);        }
