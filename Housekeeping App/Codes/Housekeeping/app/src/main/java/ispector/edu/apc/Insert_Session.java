@@ -79,3 +79,18 @@ public class Insert_Session extends AsyncTask<Void, Void, String> {
                 response += temp;
                 Logs.show("e", TAG, "response >> " + response);
             }
+            // put into JSONObject
+            jsonObject.put("Content", response);
+            jsonObject.put("Message", urlConnection.getResponseMessage());
+            jsonObject.put("Length", urlConnection.getContentLength());
+            jsonObject.put("Type", urlConnection.getContentType());
+
+            return "true";
+
+        } catch (IOException | JSONException e) {
+            return e.toString();
+        }
+
+    }
+
+    protected void onPostExecute(String result) {
