@@ -52,4 +52,18 @@ public class Get_UserData extends AsyncTask<Void, Void, String> {
         String address = HousekeepingApp.ServerAddress + "/get_user_data.php?username="+_username+"&password="+_password;
         HttpURLConnection urlConnection;
 
-      
+        try {
+            URL url = new URL(address);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+            JSONObject jsonObject = new JSONObject();
+            InputStream inputStream;
+            // get stream
+            if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                inputStream = urlConnection.getInputStream();
+            } else {
+                inputStream = urlConnection.getErrorStream();
+            }
+           
