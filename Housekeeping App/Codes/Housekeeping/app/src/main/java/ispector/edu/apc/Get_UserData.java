@@ -110,4 +110,13 @@ public class Get_UserData extends AsyncTask<Void, Void, String> {
     }
 
     protected void onPostExecute(String result) {
-       
+        // dismiss the dialog after getting all user data
+        if (mListener != null){
+            mListener.myMethod(result);        }else{
+            mListener.myMethod(null);        }
+
+    }
+
+    public interface MyInterface {
+        public void myMethod(String result);    }
+}
