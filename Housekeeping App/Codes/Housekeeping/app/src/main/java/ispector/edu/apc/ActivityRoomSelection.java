@@ -59,3 +59,7 @@ public class ActivityRoomSelection extends AppCompatActivity {
         btn_StartQR = (Button) findViewById(R.id.btn_StartQR);
         btn_EndQR = (Button) findViewById(R.id.btn_EndQR);
 
+        // getting user info from log in
+        logInResult = getIntent().getStringExtra("result");
+
+       
