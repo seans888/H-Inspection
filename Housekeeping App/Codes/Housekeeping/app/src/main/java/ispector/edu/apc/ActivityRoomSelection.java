@@ -62,4 +62,15 @@ public class ActivityRoomSelection extends AppCompatActivity {
         // getting user info from log in
         logInResult = getIntent().getStringExtra("result");
 
-       
+        // display user info in Activity
+        String[] result = logInResult.split("#%");
+        tv_UserFullName.setText("Full Name: " + result[0] + " " + result[1]);
+        tv_UserType.setText("User Type: " + result[2]);
+        final List<String> suite = new ArrayList<String>();
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.row_spinner,suite);
+
+        rg_RoomType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+               
