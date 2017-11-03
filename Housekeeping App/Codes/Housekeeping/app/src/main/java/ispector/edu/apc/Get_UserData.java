@@ -73,4 +73,41 @@ public class Get_UserData extends AsyncTask<Void, Void, String> {
                 response += temp;
                 Logs.show("e", TAG, "response >> " + response);
             }
-            
+            // put into JSONObject
+            jsonObject.put("Content", response);
+            jsonObject.put("Message", urlConnection.getResponseMessage());
+            jsonObject.put("Length", urlConnection.getContentLength());
+            jsonObject.put("Type", urlConnection.getContentType());
+
+            int i = jsonObject.length();
+            Logs.show("e", TAG, "length >> " + Integer.toString(i));
+            JSONArray json = new JSONArray(response);
+            if (json.length() == 0){
+                return "Invalid username and password. Please check credentials.";
+            }else{
+                for(int j=0;j<json.length();j++){
+                    JSONObject e = json.getJSONObject(j);
+                    lastName =  e.getString("LastName");
+                    firstname =  e.getString("FirstName");
+                    usertype =  e.getString("UserType");
+                    userNo = e.getString("UserNo");
+                    Logs.show("e", TAG, "LastName >> " + lastName);
+                    Logs.show("e", TAG, "FirstName >> " +  firstname);
+                    Logs.show("e", TAG, "UserType >> " + usertype);
+                    Logs.show("e", TAG, "userNo >> " + userNo);
+                    HousekeepingApp.setUserNo(userNo);
+                    HousekeepingApp.setUserType(usertype);
+                }
+                return firstname + "#%" + lastName + "#%" + usertype;
+            }
+
+
+
+        } catch (IOException | JSONException e) {
+            return e.toString();
+        }
+
+    }
+
+    protected void onPostExecute(String result) {
+       
