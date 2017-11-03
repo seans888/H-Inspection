@@ -37,3 +37,8 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
             mScannerView.stopCamera();           // Stop camera on pause
             }
 
+    @Override
+    public void handleResult(Result rawResult) {
+            // Do something with the result here
+            Log.v(TAG, rawResult.getText()); // Prints scan results
+  
