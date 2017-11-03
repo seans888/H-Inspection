@@ -73,4 +73,21 @@ public class ActivityRoomSelection extends AppCompatActivity {
         {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-               
+                // checkedId is the RadioButton selected
+
+                suite.clear();
+
+                if (rb_Suite.isChecked()){
+                    suite.add("Choose Room No.");
+                    suite.add("1");
+                    suite.add("2");
+                    suite.add("3");
+                    suite.add("4");
+                    suite.add("5");
+                    suite.add("6");
+                    suite.add("7");
+                    suite.add("8");
+                    suite.add("9");
+                    suite.add("10");
+                    spnr_RoomNo.setAdapter(adapter);
+                   
