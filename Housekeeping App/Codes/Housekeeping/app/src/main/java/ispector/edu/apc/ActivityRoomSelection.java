@@ -203,4 +203,26 @@ public class ActivityRoomSelection extends AppCompatActivity {
                         token = "HK_OnGoingInspection";
                     }
 
-                   
+                    // INSP
+
+                    else if (HousekeepingApp.getUserType().equals("INSP")
+                            && !tks[0].equals("null") // HK_START - SCANNED
+                            && tks[1].equals("null") // HK_END - NOT
+                            && tks[2].equals("null") // INSP_START - NOT
+                            && tks[3].equals("null") // INSP_END - NOT
+                            ){
+                        btn_StartQR.setVisibility(View.GONE);
+                        btn_EndQR.setVisibility(View.GONE);
+                        tv_RoomStatus.setText("On-going Cleaning");
+                        token = "INSP_OnGoingCleaning";
+                    } else if (HousekeepingApp.getUserType().equals("INSP")
+                            && !tks[0].equals("null") // HK_START - SCANNED
+                            && !tks[1].equals("null") // HK_END - SCANNED
+                            && tks[2].equals("null") // INSP_START - NOT
+                            && tks[3].equals("null") // INSP_END - NOT
+                            ){
+                        btn_StartQR.setVisibility(View.VISIBLE);
+                        btn_EndQR.setVisibility(View.GONE);
+                        tv_RoomStatus.setText("Ready for Inspection");
+                        token = "INSP_ReadyForInspection";
+                    } 
