@@ -90,4 +90,117 @@ public class ActivityRoomSelection extends AppCompatActivity {
                     suite.add("9");
                     suite.add("10");
                     spnr_RoomNo.setAdapter(adapter);
+                    spnr_RoomNo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                            // your code here
+                            Logs.show("v",TAG,suite.get(position));
+                            if (!suite.get(position).startsWith("Choose")){
+                                HousekeepingApp.setRoomNo(suite.get(position));
+                                getQRCodeStatus(suite.get(position));
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parentView) {
+                            // your code here
+                        }
+
+                    });
+                }
+
+                if (rb_NonSuite.isChecked()){
+                    suite.add("Choose Room No.");
+                    suite.add("11");
+                    suite.add("12");
+                    suite.add("13");
+                    suite.add("14");
+                    suite.add("15");
+                    suite.add("16");
+                    suite.add("17");
+                    suite.add("18");
+                    suite.add("19");
+                    suite.add("20");
+                    spnr_RoomNo.setAdapter(adapter);
+                    spnr_RoomNo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                            // your code here
+                            Logs.show("v",TAG,suite.get(position));
+                            if (!suite.get(position).startsWith("Choose")){
+                                HousekeepingApp.setRoomNo(suite.get(position));
+                                getQRCodeStatus(suite.get(position));
+
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parentView) {
+                            // your code here
+                        }
+
+                    });
+                }
+            }
+        });
+
+
+
+
+
+
+
+    }
+
+    private void getQRCodeStatus(String s) {
+        Get_Sessions get_QR_Code_Status_Of_User_And_Room = new Get_Sessions(
+                new Get_Sessions.MyInterface() {
+            @Override
+            public void myMethod(String result) {
+                Logs.show("v", TAG, "result >> " + result);
+                if (result.startsWith("No") && HousekeepingApp.getUserType().equals("HK")){ // New Session
+                    btn_StartQR.setVisibility(View.VISIBLE);
+                    btn_EndQR.setVisibility(View.GONE);
+                    tv_RoomStatus.setText("Ready for Cleaning");
+                    token = "HK_ReadyForCleaning";
+                } else if (result.startsWith("No") && HousekeepingApp.getUserType().equals("INSP")){ // New Session
+                    btn_StartQR.setVisibility(View.GONE);
+                    btn_EndQR.setVisibility(View.GONE);
+                    tv_RoomStatus.setText("Ready for Cleaning");
+                }
+                else{
+
+                    String[] tks = result.split("#%");
+                    if (HousekeepingApp.getUserType().equals("HK")
+                            && !tks[0].equals("null") // HK_START - SCANNED
+                            && tks[1].equals("null") // HK_END - NOT
+                            && tks[2].equals("null") // INSP_START - NOT
+                            && tks[3].equals("null") // INSP_END - NOT
+                            ){
+                            btn_StartQR.setVisibility(View.GONE);
+                            btn_EndQR.setVisibility(View.VISIBLE);
+                            tv_RoomStatus.setText("On-going Cleaning");
+                        token = "HK_OnGoingCleaning";
+                    } else if (HousekeepingApp.getUserType().equals("HK")
+                            && !tks[0].equals("null")// HK_START - SCANNED
+                            && !tks[1].equals("null") // HK_END - SCANNED
+                            && tks[2].equals("null") // INSP_START - NOT
+                            && tks[3].equals("null") // INSP_END - NOT
+                            ){
+                        btn_StartQR.setVisibility(View.GONE);
+                        btn_EndQR.setVisibility(View.GONE);
+                        tv_RoomStatus.setText("Ready for Inspection");
+                        token = "HK_ReadyForInspection";
+                    } else if (HousekeepingApp.getUserType().equals("HK")
+                            && !tks[0].equals("null") // HK_START - SCANNED
+                            && !tks[1].equals("null") // HK_END - SCANNED
+                            && !tks[2].equals("null") // INSP_START - SCANNED
+                            && tks[3].equals("null") // INSP_END - NOT
+                            ){
+                        btn_StartQR.setVisibility(View.GONE);
+                        btn_EndQR.setVisibility(View.GONE);
+                        tv_RoomStatus.setText("On-Going Inspection");
+                        token = "HK_OnGoingInspection";
+                    }
+
                    
