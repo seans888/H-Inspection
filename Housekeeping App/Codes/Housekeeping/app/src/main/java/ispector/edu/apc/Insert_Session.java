@@ -58,4 +58,18 @@ public class Insert_Session extends AsyncTask<Void, Void, String> {
         Logs.show("v", TAG, "address >> " + address);
         HttpURLConnection urlConnection;
 
-      
+        try {
+            URL url = new URL(address);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+            JSONObject jsonObject = new JSONObject();
+            InputStream inputStream;
+            // get stream
+            if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                inputStream = urlConnection.getInputStream();
+            } else {
+                inputStream = urlConnection.getErrorStream();
+            }
+          
