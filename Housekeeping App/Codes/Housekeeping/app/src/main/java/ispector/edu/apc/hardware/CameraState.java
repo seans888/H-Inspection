@@ -34,3 +34,8 @@ public class CameraState {
             return true;
         }
     }
+    public void EnableCamera(){
+        //set camera allowed to use
+        ActivityCompat.requestPermissions((Activity)c, new String[] {Manifest.permission.CAMERA}, 100);
+    }
+}
