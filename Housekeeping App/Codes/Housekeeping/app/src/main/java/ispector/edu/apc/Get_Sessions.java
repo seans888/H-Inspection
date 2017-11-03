@@ -64,4 +64,10 @@ public class Get_Sessions extends AsyncTask<Void, Void, String> {
 
             JSONObject jsonObject = new JSONObject();
             InputStream inputStream;
- 
+            // get stream
+            if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                inputStream = urlConnection.getInputStream();
+            } else {
+                inputStream = urlConnection.getErrorStream();
+            }
+            
