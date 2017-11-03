@@ -31,4 +31,9 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
             mScannerView.startCamera();          // Start camera on resume
             }
 
-   
+    @Override
+    public void onPause() {
+            super.onPause();
+            mScannerView.stopCamera();           // Stop camera on pause
+            }
+
