@@ -41,4 +41,5 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
     public void handleResult(Result rawResult) {
             // Do something with the result here
             Log.v(TAG, rawResult.getText()); // Prints scan results
-  
+            Log.v(TAG, rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
+            HousekeepingApp.setQRCode(rawResult.getText());
