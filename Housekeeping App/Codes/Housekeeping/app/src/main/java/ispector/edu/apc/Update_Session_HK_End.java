@@ -69,4 +69,11 @@ public class Update_Session_HK_End extends AsyncTask<Void, Void, String> {
             } else {
                 inputStream = urlConnection.getErrorStream();
             }
-           
+            // parse stream
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String temp, response = "";
+            while ((temp = bufferedReader.readLine()) != null) {
+                response += temp;
+                Logs.show("e", TAG, "response >> " + response);
+            }
+            
