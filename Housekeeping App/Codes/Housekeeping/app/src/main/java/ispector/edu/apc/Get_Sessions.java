@@ -112,3 +112,14 @@ public class Get_Sessions extends AsyncTask<Void, Void, String> {
 
     }
 
+    protected void onPostExecute(String result) {
+        // dismiss the dialog after getting all products
+        if (mListener != null){
+            mListener.myMethod(result);        }else{
+            mListener.myMethod(null);        }
+
+    }
+
+    public interface MyInterface {
+        public void myMethod(String result);    }
+}
