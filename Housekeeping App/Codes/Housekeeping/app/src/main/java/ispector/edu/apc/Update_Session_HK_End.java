@@ -54,3 +54,19 @@ public class Update_Session_HK_End extends AsyncTask<Void, Void, String> {
         String address = HousekeepingApp.ServerAddress + "/update_session_hk_end.php?UserNo="+_userNo+"&RoomNo="+_roomNo;
         Logs.show("v", TAG, "address >> " + address);
         HttpURLConnection urlConnection;
+
+        try {
+            URL url = new URL(address);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+            JSONObject jsonObject = new JSONObject();
+            InputStream inputStream;
+            // get stream
+            if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                inputStream = urlConnection.getInputStream();
+            } else {
+                inputStream = urlConnection.getErrorStream();
+            }
+           
