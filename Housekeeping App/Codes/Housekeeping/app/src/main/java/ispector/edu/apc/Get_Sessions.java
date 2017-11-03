@@ -35,3 +35,33 @@ public class Get_Sessions extends AsyncTask<Void, Void, String> {
             ;
 
 
+    public Get_Sessions(MyInterface mListener, Context context, String usertype, String userNo, String roomNo) {
+        this.mListener  = mListener;
+        this._userType = usertype;
+        this._roomNo = roomNo;
+        this._userNo = userNo;
+    }
+
+
+    @Override
+    protected void onPreExecute() {
+        Logs.show("d", TAG, "Loading data...");
+        super.onPreExecute();}
+
+    protected String doInBackground(Void... args) {
+
+       //String address = "http://192.168.0.10/housekeepingapp/get_all_users.php?username="+_username+"&password="+_password;
+        //String address = HousekeepingApp.ServerAddress + "/get_all_users.php";
+        String address = HousekeepingApp.ServerAddress + "/get_user_room_qr_data.php?HK_UserNo="+_userNo+"&RoomNo="+_roomNo;
+        Logs.show("v", TAG, "address >> " + address);
+        HttpURLConnection urlConnection;
+
+        try {
+            URL url = new URL(address);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+            JSONObject jsonObject = new JSONObject();
+            InputStream inputStream;
+ 
