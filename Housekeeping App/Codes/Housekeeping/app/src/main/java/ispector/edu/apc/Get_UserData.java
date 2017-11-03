@@ -32,3 +32,24 @@ public class Get_UserData extends AsyncTask<Void, Void, String> {
             , usertype
             , userNo;
 
+
+    public Get_UserData(MyInterface mListener, Context context, String username, String password) {
+        this.mListener  = mListener;
+        this._username = username;
+        this._password = password;
+    }
+
+
+    @Override
+    protected void onPreExecute() {
+        Logs.show("d", TAG, "Loading data...");
+        super.onPreExecute();}
+
+    protected String doInBackground(Void... args) {
+
+       //String address = "http://192.168.0.10/housekeepingapp/get_all_users.php?username="+_username+"&password="+_password;
+        //String address = HousekeepingApp.ServerAddress + "/get_all_users.php";
+        String address = HousekeepingApp.ServerAddress + "/get_user_data.php?username="+_username+"&password="+_password;
+        HttpURLConnection urlConnection;
+
+      
