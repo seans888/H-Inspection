@@ -1,0 +1,245 @@
+[
+    {
+        "outputFile": "C:\\AndroidStudio\\Ispect\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-he\\values-he.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 55,
+                        "endOffset": 106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 111,
+                    "endColumn": 49,
+                    "endOffset": 156
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 111,
+                        "endColumn": 49,
+                        "endOffset": 156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 161,
+                    "endColumn": 134,
+                    "endOffset": 291
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 161,
+                        "endColumn": 134,
+                        "endOffset": 291
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 296,
+                    "endColumn": 89,
+                    "endOffset": 381
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 296,
+                        "endColumn": 89,
+                        "endOffset": 381
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Windows 8.1\\Desktop\\Ispector\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-he\\values-he.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "C:\\Users\\Windows 8.1\\.android\\build-cache\\a099a23b641b045c33e7d00e255cd6f217e29a02\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 55,
+                        "endOffset": 106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 111,
+                    "endColumn": 49,
+                    "endOffset": 156
+                },
+                "from": {
+                    "file": "C:\\Users\\Windows 8.1\\.android\\build-cache\\a099a23b641b045c33e7d00e255cd6f217e29a02\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 111,
+                        "endColumn": 49,
+                        "endOffset": 156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 161,
+                    "endColumn": 134,
+                    "endOffset": 291
+                },
+                "from": {
+                    "file": "C:\\Users\\Windows 8.1\\.android\\build-cache\\a099a23b641b045c33e7d00e255cd6f217e29a02\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 161,
+                        "endColumn": 134,
+                        "endOffset": 291
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 296,
+                    "endColumn": 89,
+                    "endOffset": 381
+                },
+                "from": {
+                    "file": "C:\\Users\\Windows 8.1\\.android\\build-cache\\a099a23b641b045c33e7d00e255cd6f217e29a02\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 296,
+                        "endColumn": 89,
+                        "endOffset": 381
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\AndroidStudio\\Ispector\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-he\\values-he.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 55,
+                        "endOffset": 106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 111,
+                    "endColumn": 49,
+                    "endOffset": 156
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 111,
+                        "endColumn": 49,
+                        "endOffset": 156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 161,
+                    "endColumn": 134,
+                    "endOffset": 291
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 161,
+                        "endColumn": 134,
+                        "endOffset": 291
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 296,
+                    "endColumn": 89,
+                    "endOffset": 381
+                },
+                "from": {
+                    "file": "C:\\Users\\Chanty\\.android\\build-cache\\71ad5c5c05da2cabb74876f9d20b0d9b018a76d8\\output\\res\\values-he\\values-he.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 296,
+                        "endColumn": 89,
+                        "endOffset": 381
+                    }
+                }
+            }
+        ]
+    }
+]

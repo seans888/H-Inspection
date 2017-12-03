@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\AndroidStudio\\Ispect\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation_menu.xml",
+        "source": "C:\\AndroidStudio\\Ispect\\app\\src\\main\\res\\menu\\navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudio\\Ispector\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation_menu.xml",
+        "source": "C:\\AndroidStudio\\Ispector\\app\\src\\main\\res\\menu\\navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Windows 8.1\\Desktop\\Ispector\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation_menu.xml",
+        "source": "C:\\Users\\Windows 8.1\\Desktop\\Ispector\\app\\src\\main\\res\\menu\\navigation_menu.xml"
+    }
+]

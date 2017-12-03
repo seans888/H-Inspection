@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">198151208042-fu3f5220do2smmm380bt3pginmttuq74.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://hoteltwoway-65c5b.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">198151208042</string>
+    <string name="google_api_key" translatable="false">AIzaSyD7SkqntQWlKXCcJje7aDY0qTZwU_R-2ZI</string>
+    <string name="google_app_id" translatable="false">1:198151208042:android:b102566c88b65803</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD7SkqntQWlKXCcJje7aDY0qTZwU_R-2ZI</string>
+    <string name="google_storage_bucket" translatable="false">hoteltwoway-65c5b.appspot.com</string>
+</resources>
