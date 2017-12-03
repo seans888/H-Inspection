@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "198151208042",
+    "firebase_url": "https://hoteltwoway-65c5b.firebaseio.com",
+    "project_id": "hoteltwoway-65c5b",
+    "storage_bucket": "hoteltwoway-65c5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198151208042:android:a5a10fd5c3bc9535",
+        "android_client_info": {
+          "package_name": "com.example.chanty.hoteltwoway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198151208042-fu3f5220do2smmm380bt3pginmttuq74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7SkqntQWlKXCcJje7aDY0qTZwU_R-2ZI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198151208042:android:914300b6a9ccf421",
+        "android_client_info": {
+          "package_name": "com.chanty.hoteltwowayv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198151208042-5hg8ae45kujp5hk9pfeoli21omupbcln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chanty.hoteltwowayv2",
+            "certificate_hash": "1db01c177ee56eeeb8d3bba3f90df76387e956f6"
+          }
+        },
+        {
+          "client_id": "198151208042-fu3f5220do2smmm380bt3pginmttuq74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7SkqntQWlKXCcJje7aDY0qTZwU_R-2ZI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198151208042-fu3f5220do2smmm380bt3pginmttuq74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198151208042:android:b102566c88b65803",
+        "android_client_info": {
+          "package_name": "com.chanty.ispector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198151208042-e479rs62vacj0vdc497ddf7vnmuck2cn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chanty.ispector",
+            "certificate_hash": "1db01c177ee56eeeb8d3bba3f90df76387e956f6"
+          }
+        },
+        {
+          "client_id": "198151208042-fu3f5220do2smmm380bt3pginmttuq74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7SkqntQWlKXCcJje7aDY0qTZwU_R-2ZI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198151208042-fu3f5220do2smmm380bt3pginmttuq74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
