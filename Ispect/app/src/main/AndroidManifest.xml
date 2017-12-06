@@ -19,6 +19,7 @@
         <activity android:name=".Home" />
         <activity android:name=".ScannerGreen" />
         <activity android:name=".ScannerRed" />
+         <activity android:name=".ScannerYellow" />
 
         </activity>
        
