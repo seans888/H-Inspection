@@ -18,4 +18,9 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() throws Exception {
+    	Context appContext = InstrumentationRegistry.getTargetContext();
+
+        assertEquals("com.chanty.ispector", appContext.getPackageName());
+    }
+}
 
