@@ -30,6 +30,7 @@
             </intent-filter> 
         </activity>
         <activity android:name=".ScannerParent1" />
+         <activity android:name=".ScannerGreen1" />
 
 
         </activity>
