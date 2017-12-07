@@ -39,9 +39,6 @@
         <activity android:name=".Checklist1" />
         <activity android:name=".Login"></activity>
 
-
-
-        </activity>
        
     </application>
 
