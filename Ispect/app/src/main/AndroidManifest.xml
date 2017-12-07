@@ -32,6 +32,7 @@
         <activity android:name=".ScannerParent1" />
          <activity android:name=".ScannerGreen1" />
           <activity android:name=".ScannerYellow1" />
+          <activity android:name=".ScannerRed1" />
 
 
         </activity>
