@@ -26,3 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Iterator;
 
+public class Login extends Activity {
+
+    //VIEW AND WIDGETS
+    TextView loginBtn;
+    TextView signupBtn;
+    EditText userEmailEdit, userPasswordEdit;
+
