@@ -21,6 +21,7 @@
         <activity android:name=".ScannerRed" />
          <activity android:name=".ScannerYellow" />
           <activity android:name=".ScannerParent" />
+          <activity android:name=".Registration" />
 
         </activity>
        
