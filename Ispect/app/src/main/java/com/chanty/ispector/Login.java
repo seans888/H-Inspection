@@ -33,3 +33,7 @@ public class Login extends Activity {
     TextView signupBtn;
     EditText userEmailEdit, userPasswordEdit;
 
+     //STRING FIELDS
+    String userEmailString, userPasswordString;
+
+
