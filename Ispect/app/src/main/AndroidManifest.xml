@@ -35,6 +35,7 @@
         <activity android:name=".ScannerRed1" />
         <activity android:name=".ScannerRedTwoWay" />
         <activity android:name=".CheckList" />
+        <activity android:name=".ScannerRedTwoWay1" />
 
 
 
