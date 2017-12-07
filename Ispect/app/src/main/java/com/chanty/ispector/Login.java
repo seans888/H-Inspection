@@ -36,4 +36,9 @@ public class Login extends Activity {
      //STRING FIELDS
     String userEmailString, userPasswordString;
 
+    //FIREBASE AUTH FIELDS
+    FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener nAuthlistener;
+
+
 
