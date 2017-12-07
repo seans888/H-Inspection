@@ -40,5 +40,8 @@ public class Login extends Activity {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener nAuthlistener;
 
+    DatabaseReference mDatabaseRef;
+
+
 
 
