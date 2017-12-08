@@ -51,6 +51,12 @@ public class Login extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
+        //ASSIGN IDS
+        loginBtn = (TextView) findViewById(R.id.loginBtn);
+        signupBtn = (TextView) findViewById(R.id.signupBtn);
+        userEmailEdit = (EditText) findViewById(R.id.loginEditText);
+        userPasswordEdit = (EditText) findViewById(R.id.loginPasswordEditText);
+
 
 
 
