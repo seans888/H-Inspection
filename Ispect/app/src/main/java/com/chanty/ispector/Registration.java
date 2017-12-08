@@ -181,6 +181,66 @@ public class Registration extends Activity {
             }
         });
 
+        //MOVE TO LOGIN
+
+        moveToLoginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+                startActivity(new Intent(Registration.this, Login.class));
+
+
+
+            }
+        });
+
+
+
+    }
+
+
+
+
+    private void checkUserValidation(DataSnapshot dataSnapshot, String emailForVer) {
+
+
+        Iterator iterator = dataSnapshot.getChildren().iterator();
+
+        while (iterator.hasNext())
+        {
+
+            DataSnapshot dataUser = (DataSnapshot) iterator.next();
+
+
+
+            if(String.valueOf(dataUser.child("emailUser").getValue()).equals(emailForVer) &&  dataUser.child("emailUser") != null)
+            {
+
+
+                if(String.valueOf(dataUser.child("isVerified").getValue()).equals("unverified") && dataUser.child("isVerified") != null)
+                {
+
+                    Intent in = new Intent(Registration.this, Login.class);
+                    in.putExtra("USER_KEY" ,  String.valueOf(dataUser.child("userKey").getValue()));
+                    in.putExtra("USER_EMAIL" ,  String.valueOf(dataUser.child("emailUser").getValue()));
+                    in.putExtra("USER_EMAIL" ,  String.valueOf(dataUser.child("passWordUser").getValue()));
+                    in.putExtra("USER_ID" ,  String.valueOf(dataUser.child("userID").getValue()));
+                    startActivity(in);
+
+
+
+                }else
+                {
+                    startActivity(new Intent(Registration.this, Registration.class));
+                }
+
+            }
+
+        }
+
+    }
+
+
 
 
 
