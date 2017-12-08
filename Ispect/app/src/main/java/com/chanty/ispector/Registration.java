@@ -68,6 +68,49 @@ public class Registration extends Activity {
         userPasswordEdit = (EditText) findViewById(R.id.passEditTextCreate);
         Usertype = (RadioGroup) findViewById(R.id.radioGroup);
 
+         //ASSIGN INSTANCE
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        mUserCheckData =  FirebaseDatabase.getInstance().getReference().child("Users");
+        nAuth = FirebaseAuth.getInstance();
+
+
+
+
+
+        nAuthlistener = new FirebaseAuth.AuthStateListener(){
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if (user != null) {
+
+                    final String emailForVer = user.getEmail();
+                    mUserCheckData.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            checkUserValidation(dataSnapshot, emailForVer);
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                } else {
+
+
+                }
+
+
+            }
+
+        };
+
+
 
 
 
