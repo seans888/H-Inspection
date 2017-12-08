@@ -155,3 +155,51 @@ nAuthlistener = new FirebaseAuth.AuthStateListener(){
 
     }
 
+
+ private void checkUserValidation(DataSnapshot dataSnapshot, String emailForVer) {
+        Iterator iterator  = dataSnapshot.getChildren().iterator();
+
+        while(iterator.hasNext())
+        {
+            DataSnapshot dataUser  = (DataSnapshot) iterator.next();
+            if(String.valueOf(dataUser.child("emailUser").getValue()).equals(emailForVer) && dataUser.child("emailUser") != null) {
+                if (String.valueOf(dataUser.child("isVerified").getValue()).equals("unverified") && dataUser.child("isVerified") != null) {
+                    Intent in = new Intent(Login.this, Home.class);
+                    in.putExtra("USER_KEY", String.valueOf(dataUser.child("userKey").getValue()));
+                    in.putExtra("USER_EMAIL", String.valueOf(dataUser.child("emailUser").getValue()));
+                    startActivity(in);
+                } else {
+
+                    Intent inte = new Intent(Login.this, Home.class);
+                    startActivity(inte);
+
+                }
+            }
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(nAuthlistener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(nAuthlistener);
+    }
+}
