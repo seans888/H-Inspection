@@ -57,6 +57,8 @@ public class Login extends Activity {
         userEmailEdit = (EditText) findViewById(R.id.loginEditText);
         userPasswordEdit = (EditText) findViewById(R.id.loginPasswordEditText);
 
-
+        //ASSIGN INSTANCE
+        mAuth = FirebaseAuth.getInstance();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
