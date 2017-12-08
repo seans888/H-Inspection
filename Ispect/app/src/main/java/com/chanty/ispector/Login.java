@@ -103,3 +103,55 @@ nAuthlistener = new FirebaseAuth.AuthStateListener(){
 
 
         };
+         //ONCLICK LISTENER
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Perform Login Operation
+                userEmailString = userEmailEdit.getText().toString().trim();
+                userPasswordString = userPasswordEdit.getText().toString().trim();
+                final String userType = "Housekeeper";
+
+
+
+
+                if(!TextUtils.isEmpty(userEmailString) && !TextUtils.isEmpty(userPasswordString) && userPasswordString != null && userEmailString != null)
+                {
+                    mAuth.signInWithEmailAndPassword(userEmailString, userPasswordString).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful() )
+                            {
+
+
+                                mDatabaseRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        checkUserValidation(dataSnapshot, userEmailString);
+                                        checkUserValidation(dataSnapshot, userType);
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+                            else
+                            {
+                                Toast.makeText(Login.this, "User Login Failed", Toast.LENGTH_LONG).show();
+
+                            }
+
+                        }
+                    });
+                }
+            }
+        });
+
+    }
+
