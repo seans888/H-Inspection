@@ -31,6 +31,47 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Iterator;
 
+public class Registration extends Activity {
+
+    //VIEW AND WIDGETS
+    TextView createUser, moveToLoginBtn, moveToLoginBtn1;
+    EditText userEmailEdit, userPasswordEdit;
+    RadioButton HK, HKS;
+    RadioGroup Usertype;
+
+
+    private static final String TAG = "EmailPassword";
+
+    //FIREBASE AUTH FIELDS
+    FirebaseAuth nAuth;
+    FirebaseAuth.AuthStateListener nAuthlistener;
+
+    DatabaseReference mDatabaseRef, mUserCheckData;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_registration);
+
+
+
+
+
+        //ASSIGN ID
+        createUser = (TextView) findViewById(R.id.createUserBtn);
+        moveToLoginBtn = (TextView) findViewById(R.id.moveToLogin);
+        userEmailEdit = (EditText) findViewById(R.id.emailEditTextCreate);
+        userPasswordEdit = (EditText) findViewById(R.id.passEditTextCreate);
+        Usertype = (RadioGroup) findViewById(R.id.radioGroup);
+
+
+
+
+
 
 
 
