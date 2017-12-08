@@ -61,4 +61,45 @@ public class Login extends Activity {
         mAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
+nAuthlistener = new FirebaseAuth.AuthStateListener(){
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser User = firebaseAuth.getCurrentUser();
 
+                if (User != null){
+
+                    final String emailForVer = User.getEmail();
+
+                    mDatabaseRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            checkUserValidation(dataSnapshot,emailForVer);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+
+
+                }else{
+
+                }
+
+
+                signupBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        startActivity(new Intent(Login.this, Registration.class));
+                    }
+                });
+
+
+            }
+
+
+        };
