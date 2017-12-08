@@ -110,6 +110,78 @@ public class Registration extends Activity {
 
         };
 
+         //ON CLICK LISTENER
+
+        createUser.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+
+                final String userEmailString, userPassString,FinalString;
+                int id = Usertype.getCheckedRadioButtonId();
+                RadioButton userType = (RadioButton) findViewById(id);
+
+                userEmailString = userEmailEdit.getText().toString();
+                userPassString = userPasswordEdit.getText().toString();
+                FinalString = userType.getText().toString();
+
+
+
+
+
+
+
+                if (!TextUtils.isEmpty(userEmailString) && !TextUtils.isEmpty(userPassString))
+                {
+                    nAuth.createUserWithEmailAndPassword(userEmailString,userPassString).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (task.isSuccessful())
+                            {
+
+
+                                DatabaseReference mChildDatabase = mDatabaseRef.child("Users").push();
+                                String key_user = mChildDatabase.getKey();
+                                String user_id = nAuth.getCurrentUser().getUid();
+                                mChildDatabase.child("UserType").setValue(FinalString);
+                                mChildDatabase.child("userID").setValue(user_id);
+                                mChildDatabase.child("isVerified").setValue("unverified");
+                                mChildDatabase.child("userKey").setValue(key_user);
+                                mChildDatabase.child("emailUser").setValue(userEmailString);
+                                mChildDatabase.child("passWordUser").setValue(userPassString);
+                                Toast.makeText(Registration.this, "User Account Created! Please login!", Toast.LENGTH_LONG).show();
+                                Intent myIntent  = new Intent(Registration.this, Login.class);
+                                startActivity(myIntent);
+                            }
+                            else
+                            {
+
+                                Log.w("TAG", "createUserWithEmail:failure",task.getException());
+                                //Toast.makeText(MainActivity.this, "User Account Creation Fail", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Registration.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(Registration.this, Registration.class));
+
+
+                            }
+                        }
+                    });
+                }
+                else{
+                    if (TextUtils.isEmpty(userEmailString)) {
+                        userEmailEdit.setError("Required.");
+
+                    } else {
+                        userPasswordEdit.setError(null);
+                    }
+                }
+
+
+
+            }
+        });
+
+
 
 
 
