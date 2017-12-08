@@ -240,6 +240,25 @@ public class Registration extends Activity {
 
     }
 
+ @Override
+    protected void onStart() {
+        super.onStart();
+
+        nAuth.addAuthStateListener(nAuthlistener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        nAuth.removeAuthStateListener(nAuthlistener);
+    }
+
+
+    public void RadioButtonClicked(View view) {
+
+    }
+}
 
 
 
