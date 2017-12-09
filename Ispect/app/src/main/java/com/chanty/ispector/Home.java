@@ -11,4 +11,20 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+public class Home extends AppCompatActivity {
 
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
+
+        //DRAWER LAYOUT
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+        //NAVIGATION DRAWER
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
