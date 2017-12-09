@@ -68,3 +68,114 @@ public class IntentIntegrator {
     private List<String> targetApplications;
     private final Map<String,Object> moreExtras = new HashMap<String,Object>(3);
 
+
+
+public IntentIntegrator(Activity activity) {
+        this.activity = activity;
+        this.fragment = null;
+        initializeConfiguration();
+    }
+
+
+    public IntentIntegrator(Fragment fragment) {
+        this.activity = fragment.getActivity();
+        this.fragment = fragment;
+        initializeConfiguration();
+    }
+
+    private void initializeConfiguration() {
+        title = DEFAULT_TITLE;
+        message = DEFAULT_MESSAGE;
+        buttonYes = DEFAULT_YES;
+        buttonNo = DEFAULT_NO;
+        targetApplications = TARGET_ALL_KNOWN;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setTitleByID(int titleID) {
+        title = activity.getString(titleID);
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setMessageByID(int messageID) {
+        message = activity.getString(messageID);
+    }
+
+    public String getButtonYes() {
+        return buttonYes;
+    }
+
+    public void setButtonYes(String buttonYes) {
+        this.buttonYes = buttonYes;
+    }
+
+    public void setButtonYesByID(int buttonYesID) {
+        buttonYes = activity.getString(buttonYesID);
+    }
+
+    public String getButtonNo() {
+        return buttonNo;
+    }
+
+    public void setButtonNo(String buttonNo) {
+        this.buttonNo = buttonNo;
+    }
+
+    public void setButtonNoByID(int buttonNoID) {
+        buttonNo = activity.getString(buttonNoID);
+    }
+
+    public Collection<String> getTargetApplications() {
+        return targetApplications;
+    }
+
+    public final void setTargetApplications(List<String> targetApplications) {
+        if (targetApplications.isEmpty()) {
+            throw new IllegalArgumentException("No target applications");
+        }
+        this.targetApplications = targetApplications;
+    }
+
+    public void setSingleTargetApplication(String targetApplication) {
+        this.targetApplications = Collections.singletonList(targetApplication);
+    }
+
+    public Map<String,?> getMoreExtras() {
+        return moreExtras;
+    }
+
+    public final void addExtra(String key, Object value) {
+        moreExtras.put(key, value);
+    }
+
+
+    public final AlertDialog initiateScan() {
+        return initiateScan(ALL_CODE_TYPES, -1);
+    }
+
+
+    public final AlertDialog initiateScan(int cameraId) {
+        return initiateScan(ALL_CODE_TYPES, cameraId);
+    }
+
+    public final AlertDialog initiateScan(Collection<String> desiredBarcodeFormats) {
+        return initiateScan(desiredBarcodeFormats, -1);
+    }
+
+    public final AlertDialog initiateScan(Collection<String> desiredBarcodeFormats, int cameraId) {
+        Intent intentScan = new Intent(BS_PACKAGE + ".SCAN");
+        intentScan.addCategory(Intent.CATEGORY_DEFAULT);
