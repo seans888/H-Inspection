@@ -81,3 +81,16 @@ public class Home extends AppCompatActivity {
 
         //NAVIGATION DRAWER
     }
+     //RETURN TO ORIGINAL STATE IF BACK IS PRESSED
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        if (mToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+}
