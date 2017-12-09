@@ -281,3 +281,82 @@ public IntentIntegrator(Activity activity) {
         downloadDialog.setCancelable(true);
         return downloadDialog.show();
     }    
+
+
+
+  public static IntentResult parseActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                String contents = intent.getStringExtra("SCAN_RESULT");
+                String formatName = intent.getStringExtra("SCAN_RESULT_FORMAT");
+                byte[] rawBytes = intent.getByteArrayExtra("SCAN_RESULT_BYTES");
+                int intentOrientation = intent.getIntExtra("SCAN_RESULT_ORIENTATION", Integer.MIN_VALUE);
+                Integer orientation = intentOrientation == Integer.MIN_VALUE ? null : intentOrientation;
+                String errorCorrectionLevel = intent.getStringExtra("SCAN_RESULT_ERROR_CORRECTION_LEVEL");
+                return new IntentResult(contents,
+                        formatName,
+                        rawBytes,
+                        orientation,
+                        errorCorrectionLevel);
+            }
+            return new IntentResult();
+        }
+        return null;
+    }
+
+
+    public final AlertDialog shareText(CharSequence text) {
+        return shareText(text, "TEXT_TYPE");
+    }
+
+    public final AlertDialog shareText(CharSequence text, CharSequence type) {
+        Intent intent = new Intent();
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.setAction(BS_PACKAGE + ".ENCODE");
+        intent.putExtra("ENCODE_TYPE", type);
+        intent.putExtra("ENCODE_DATA", text);
+        String targetAppPackage = findTargetAppPackage(intent);
+        if (targetAppPackage == null) {
+            return showDownloadDialog();
+        }
+        intent.setPackage(targetAppPackage);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(FLAG_NEW_DOC);
+        attachMoreExtras(intent);
+        if (fragment == null) {
+            activity.startActivity(intent);
+        } else {
+            fragment.startActivity(intent);
+        }
+        return null;
+    }
+
+    private static List<String> list(String... values) {
+        return Collections.unmodifiableList(Arrays.asList(values));
+    }
+
+    private void attachMoreExtras(Intent intent) {
+        for (Map.Entry<String,Object> entry : moreExtras.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            // Kind of hacky
+            if (value instanceof Integer) {
+                intent.putExtra(key, (Integer) value);
+            } else if (value instanceof Long) {
+                intent.putExtra(key, (Long) value);
+            } else if (value instanceof Boolean) {
+                intent.putExtra(key, (Boolean) value);
+            } else if (value instanceof Double) {
+                intent.putExtra(key, (Double) value);
+            } else if (value instanceof Float) {
+                intent.putExtra(key, (Float) value);
+            } else if (value instanceof Bundle) {
+                intent.putExtra(key, (Bundle) value);
+            } else {
+                intent.putExtra(key, value.toString());
+            }
+        }
+    }
+
+
+}   
