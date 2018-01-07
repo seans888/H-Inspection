@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{room}}-{{scanin}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <table width="100%">
+        <tr>
+            <td align="left" colspan="4">
+                <b>Inspector:</b>
+                <br/> {{inspector_name}}
+            </td>
+                        <td>
+
+                <b>Inspection Time: </b>
+            </td>
+                   <td>{{inspection_time}}</td>
+        </tr>
+        <tr>
+            <td align="center" colspan="4">
+                <p>
+                    <b><u>Check List</u></b>
+                </p>
+            </td>
+        </tr>
+        {% for item_name, value in checklist %}
+        <tr>
+            <td colspan="3">{{item_name}}</td>
+            {% if  value.Value %}
+            <td colspan="1">{{value.Value}}</td>
+        </tr>    
+                {% if value.Remark %} 
+        <tr>
+            <td colspan="1"></td>
+            <td colspan="2">({{value.Remark}})</td>
+            <td colspan="1"></td>
+        </tr>
+                {% endif %}
+            {% else %}
+        </tr>
+                {% for innerkey, innerval in  value.items()%}
+        <tr>
+            <td colspan="1"></td>
+            <td colspan="2">{{innerkey}}</td>
+                    {% if innerval.Value %}
+            <td colspan="1">{{innerval.Value}}</td>
+        </tr>
+                        {% if value.Remark %}
+        <tr>
+            <td colspan="2"></td>
+            <td colspan="2">({{value.Remark}})</td>
+        </tr>
+                        {% endif %}
+                    {% endif %}
+            
+        
+                {% endfor %}
+
+            {% endif %}
+        
+        {% endfor %}
+        <tr>
+            <td>
+                <b>Scan in
+                <br/> Time:</b>
+            </td>
+            <td>{{scanin}}</td>
+                        <td>
+                <b>Scan out
+                <br/> Time:</b>
+            </td>
+
+            <td>{{scanout}}</td>
+
+
+
+
+        </tr>
+    </table>
+</body>
+
+</html>
