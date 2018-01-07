@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.min.css') }}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    {% for breadcrumb in breadcrums %}
+                    <li><a href="{{breadcrumb.link}}"><span>{{breadcrumb.name}}</span></a></li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div> 
+        {% if RoomStatus is not none %}
+        <div class="row">
+            <div class="col-md-12">
+               <b>RoomStatus : </b>{{RoomStatus}}
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-unstyled">
+                    {% for choise in choises %}
+                    <a href="{{choise.link}}"><li style="margin-bottom:5px;padding:7px;background-color:#ebebeb;">{{choise.name}}</li></a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
